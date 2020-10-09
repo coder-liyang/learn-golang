@@ -59,5 +59,5 @@ func func3() {
 	//空指针的值为nil
 	var ptr *int
 	var ptr2 *string
-	fmt.Println(ptr, ptr2)
+	fmt.Println(ptr, ptr2, ptr2 == nil)
 }
