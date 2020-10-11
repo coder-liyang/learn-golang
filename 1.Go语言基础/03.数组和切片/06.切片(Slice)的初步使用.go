@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	//切片不保存数据,本事上是数的应用
+	//切片不保存数据,本质上是数的引用
 
 	//定义切片1
 	//var s []string
