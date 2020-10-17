@@ -12,11 +12,13 @@ func (h *Human) SayHi() {
 	fmt.Printf("Hi,my name is %s.\n", h.name)
 }
 
+//Student从Human"继承"来了SayHi方法
 type Student struct {
 	Human
 	School string
 }
 
+//Student从Human"继承"来了SayHi方法,但是被重写了
 type Employee struct {
 	Human
 	company int
