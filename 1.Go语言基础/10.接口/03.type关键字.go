@@ -21,6 +21,34 @@ type customFun func(int, int) int
 //5. 类型别名, 非本地类型不能定义方法
 type age = int
 
+//下面的代码报错 cannot define new methods on non-local type time.Duration
+//func (a *age) PrintAge() {
+//
+//}
+
+//将类型别名改为类型定义
+type age2 int
+
+func (a *age2) PrintAge() *age2 {
+	return a
+}
+
+//6. 给别名声明原类型中存在的方法
+type Person struct {
+	name string
+}
+
+func (p Person) sayName() {
+	fmt.Println(p.name)
+}
+
+type People = Person
+
+//给People添加sayName方法会报"重复声明"的错误,说明别名本质上还是原类型
+//func (p People) sayName() { //Method redeclared 'People.sayName'
+//
+//}
+
 func main() {
 	var a int = 10
 	var b newInt = 20
@@ -36,6 +64,9 @@ func main() {
 	var bb age = 37
 	fmt.Printf("bb的类型是:%T\n", bb)
 	fmt.Println(aa + bb)
+
+	age := age2(1010)
+	fmt.Println(age)
 }
 
 func plus() customFun {
